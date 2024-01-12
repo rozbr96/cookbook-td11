@@ -39,7 +39,7 @@ describe 'Usuário avalia uma receita' do
     expect(page).to have_content 'Avaliações'
     expect(page).to have_content "Usuário: #{user.email}"
     expect(page).to have_content 'Comentário: Receita muito boa, nota 10'
-    expect(page).to have_content 'Nota: 5/5'
+    expect(page).to have_content 'Nota Média: 5/5'
     expect(page).not_to have_link 'Deixe sua Avaliação'
   end
 

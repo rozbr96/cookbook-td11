@@ -20,10 +20,14 @@
   <div>
     Avaliações
 
-    <% @recipe.reviews.each do |recipe_review| %>
-      Usuário: <%= recipe_review.user.email %>
-      Nota: <%= recipe_review.grade %>/5
-      Comentário: <%= recipe_review.text %>
+    <% if @recipe.reviews.exists? %>
+      Nota Média: <%= @recipe.reviews.average(:grade).round(0) %>/5
+      <% @recipe.reviews.each do |recipe_review| %>
+        Usuário: <%= recipe_review.user.email %>
+        Comentário: <%= recipe_review.text %>
+      <% end %>
+    <% else %>
+      <h3>Nenhuma avaliação encontrada</h3>
     <% end %>
   </div>
 </div>
